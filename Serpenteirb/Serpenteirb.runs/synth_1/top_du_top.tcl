@@ -99,12 +99,14 @@ read_vhdl -library xil_defaultlib {
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/Memory.vhd
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/Reg_14_14.vhd
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/Sel_num.vhd
+  C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/gestion_clk.vhd
+  C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/Top_Clock.vhd
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/test_vga.vhd
+  C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/XY2Addr.vhd
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/rst_mem.vhd
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/Top_test_vga.vhd
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/cpt_an.vhd
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/direction.vhd
-  C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/gestion_clk.vhd
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/mouvement.vhd
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/transcod.vhd
   C:/Users/axel/Desktop/Projet/Serpenteirb/Serpenteirb.srcs/sources_1/new/seven_seg.vhd

@@ -1,4 +1,7 @@
-Running: xsim.dir/tb_Addr2XY_behav/xsimk.exe -simmode gui -wdb tb_Addr2XY_behav.wdb -simrunnum 0 -socket 58629
+Running: xsim.dir/tb_Addr2XY_behav/xsimk.exe -simmode gui -wdb tb_Addr2XY_behav.wdb -simrunnum 0 -socket 59381
 Design successfully loaded
-Design Loading Memory Usage: 5796 KB (Peak: 5796 KB)
+Design Loading Memory Usage: 5748 KB (Peak: 5748 KB)
 Design Loading CPU Usage: 46 ms
+Simulation completed
+Simulation Memory Usage: 6288 KB (Peak: 6288 KB)
+Simulation CPU Usage: 77 ms

@@ -8,6 +8,11 @@ entity Top_test_vga is
         
   port ( clk        : in  std_logic;
          reset      : in  std_logic;
+         CE_3k      : in  std_logic;
+         CE_1H      : in  std_logic;
+         CE_25M     : in  std_logic;
+         pos_x      : in  std_logic_vector(7 downto 0);
+         pos_y      : in  std_logic_vector(7 downto 0);
          VGA_hs     : out std_logic;
          VGA_vs     : out std_logic;
          VGA_red    : out std_logic_vector(3 downto 0);  
@@ -23,6 +28,7 @@ signal s_data_vga_in, s_data_vga_out    : std_logic_vector(bit_per_pixel - 1 dow
 
 signal s_RW, s_RW_rst, s_RW_nrml, s_enable_mem, s_reset_mem       : std_logic;
 signal s_mem_in, s_mem_out      : std_logic_vector(11 downto 0);
+signal s_Addr_H_min, s_Addr_H_max, s_Addr_B_min, s_Addr_B_max : std_logic_vector(63 downto 0);
 
 begin
     
@@ -68,20 +74,34 @@ s_RW_nrml    <= '0';
                 
      MEM : entity work.Memory
      port map ( clk        => clk,
-                --CE         => s_CE,
                 rst        => reset,
                 RW         => s_RW,
                 enable_mem => s_enable_mem,
                 addr_mem   => s_ADDR,
                 mem_in     => s_mem_in,
                 mem_out    => s_mem_out );
+              
+     CONV : entity work.XY2ADDR
+     port map( clk        => clk,
+               reset      => reset,
+               X          => pos_x,
+               Y          => pos_y, 
+               Addr_H_min => s_Addr_H_min,
+               Addr_H_max => s_Addr_H_max,
+               Addr_B_min => s_Addr_B_min,
+               Addr_B_max => s_Addr_B_max );
                 
      RST : entity work.rst_mem
-     port map( clk       => clk,
-               reset    => reset,
-               addr_mem => s_addr_rst_mem,
-               reset_mem => s_reset_mem,
-               RW_rst       => s_RW_rst,
-               mem_out  => s_mem_in );
+     port map( clk        => clk,
+               CE_1H      => CE_1H,
+               reset      => reset,
+               Addr_H_min => s_Addr_H_min, 
+               Addr_H_max => s_Addr_H_max, 
+               Addr_B_min => s_Addr_B_min,
+               Addr_B_max => s_Addr_B_max, 
+               addr_mem   => s_addr_rst_mem,
+               reset_mem  => s_reset_mem,
+               RW_rst     => s_RW_rst,
+               mem_out    => s_mem_in );
                                                
 end Behavioral;

@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Serpenteirb.srcs/sources_1/new/XY2Addr.vhd" \
+"../../../../Serpenteirb.srcs/sim_1/new/tb_XY2Addr.vhd" \
+
+# Do not sort compile order
+nosort

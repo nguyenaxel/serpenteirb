@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Fri Mar 12 21:04:11 2021
+| Date         : Sat Mar 13 23:35:35 2021
 | Host         : DESKTOP-JHK21PS running 64-bit major release  (build 9200)
 | Command      : report_methodology -file top_du_top_methodology_drc_routed.rpt -pb top_du_top_methodology_drc_routed.pb -rpx top_du_top_methodology_drc_routed.rpx
 | Design       : top_du_top
@@ -23,12 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 46
+             Violations found: 56
 +-----------+------------------+--------------------------------------------+------------+
 | Rule      | Severity         | Description                                | Violations |
 +-----------+------------------+--------------------------------------------+------------+
 | TIMING-14 | Critical Warning | LUT on the clock tree                      | 1          |
 | SYNTH-6   | Warning          | Timing of a RAM block might be sub-optimal | 6          |
+| TIMING-16 | Warning          | Large setup violation                      | 10         |
 | TIMING-18 | Warning          | Missing input or output delay              | 39         |
 +-----------+------------------+--------------------------------------------+------------+
 
@@ -36,7 +37,7 @@ Table of Contents
 -----------------
 TIMING-14#1 Critical Warning
 LUT on the clock tree  
-The LUT BTN/CLOCK/CLOCK_25M/sev_seg_reg[7]_i_2 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+The LUT TOPCLK/CLOCK/CLOCK_25M/sev_seg_reg[7]_i_2 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
 Related violations: <none>
 
 SYNTH-6#1 Warning
@@ -67,6 +68,56 @@ Related violations: <none>
 SYNTH-6#6 Warning
 Timing of a RAM block might be sub-optimal  
 The timing for the instance VGA/MEM/memoire_reg_5, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -1.520 ns between VGA/RST/cpt_reg[2]/C (clocked by sys_clk_pin) and VGA/RST/mem_out_reg[9]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -1.572 ns between VGA/RST/cpt_reg[2]/C (clocked by sys_clk_pin) and VGA/RST/mem_out_reg[5]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -5.172 ns between VGA/CONV/Addr_H_min_reg[10]_replica/C (clocked by sys_clk_pin) and VGA/RST/mem_out_reg[7]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -5.216 ns between VGA/CONV/Addr_H_min_reg[10]_replica/C (clocked by sys_clk_pin) and VGA/RST/mem_out_reg[2]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -5.342 ns between VGA/CONV/Addr_H_min_reg[10]_replica/C (clocked by sys_clk_pin) and VGA/RST/mem_out_reg[11]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -5.439 ns between VGA/CONV/Addr_H_min_reg[10]_replica/C (clocked by sys_clk_pin) and VGA/RST/mem_out_reg[10]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -5.440 ns between VGA/CONV/Addr_H_min_reg[10]_replica/C (clocked by sys_clk_pin) and VGA/RST/mem_out_reg[4]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -5.975 ns between VGA/CONV/Addr_H_min_reg[10]_replica/C (clocked by sys_clk_pin) and VGA/RST/mem_out_reg[5]/S (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -5.975 ns between VGA/CONV/Addr_H_min_reg[10]_replica/C (clocked by sys_clk_pin) and VGA/RST/mem_out_reg[6]/S (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -5.975 ns between VGA/CONV/Addr_H_min_reg[10]_replica/C (clocked by sys_clk_pin) and VGA/RST/mem_out_reg[9]/S (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning

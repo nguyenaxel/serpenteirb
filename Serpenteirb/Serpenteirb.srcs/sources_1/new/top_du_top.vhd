@@ -21,11 +21,19 @@ end top_du_top;
 
 architecture Behavioral of top_du_top is
 
+signal s_CE_3k, s_CE_1H, s_CE_25M : std_logic;
+signal s_pos_x, s_pos_y : std_logic_vector(7 downto 0);
+
 begin
 
   VGA : entity work.Top_test_vga
   port map ( clk       => clk,
              reset     => reset,
+             CE_3k     => s_CE_3k,
+             CE_1H     => s_CE_1H,
+             CE_25M    => s_CE_25M,
+             pos_x     => s_pos_x,
+             pos_y     => s_pos_y,
              VGA_vs    => VGA_vs,
              VGA_hs    => VGA_hs,
              VGA_red   => VGA_red,
@@ -33,15 +41,27 @@ begin
              VGA_blue  => VGA_blue );
              
   BTN : entity work.top_lev
+  port map ( clk       => clk,
+             reset     => reset,
+             btn_u     => btn_u,
+             btn_c     => btn_c,
+             btn_d     => btn_d,
+             btn_l     => btn_l,
+             btn_r     => btn_r,
+             CE_3k     => s_CE_3k,
+             CE_1H     => s_CE_1H,
+             CE_25M    => s_CE_25M,
+             pos_x_out => s_pos_x,
+             pos_y_out => s_pos_y,
+             val_btn   => val_btn,
+             AN        => AN,
+             Sevenseg  => Sevenseg ); 
+             
+  TOPCLK : entity work.Top_Clock       -- Diviseur de clock 
   port map ( clk    => clk,
              reset  => reset,
-             btn_u  => btn_u,
-             btn_c  => btn_c,
-             btn_d => btn_d,
-             btn_l  => btn_l,
-             btn_r  => btn_r,
-             val_btn => val_btn,
-             AN  => AN,
-             Sevenseg  => Sevenseg );   
+             CE_3k  => s_CE_3k,
+             CE_1H  => s_CE_1H,
+             CE_25M => s_CE_25M );  
 
 end Behavioral;
